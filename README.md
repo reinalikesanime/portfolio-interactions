@@ -6,7 +6,7 @@ Custom interaction and animation code for the Reina Perez portfolio. The site it
 
 - **Webflow** owns structure, styles, variables and content (Basic site plan, so static pages, no CMS).
 - **GSAP** comes from Webflow's hosted GSAP (Site Settings), used here as `window.gsap`. Not bundled.
-- **This repo** builds one file, `dist/portfolio.js`, served from jsDelivr at a pinned version tag.
+- **This repo** builds one file, `dist/portfolio.js`, served from jsDelivr pinned to a commit id.
 - Elements opt in with `data-module="name"`; `src/core/loader.js` starts the matching module.
 - All motion values live in `src/core/motion.js`.
 - Project order and next/previous navigation come from `src/projects.js`.
@@ -33,6 +33,6 @@ npm run dev      # local dev server on :5173 (enable with localStorage 'pi-dev')
 npm run build    # outputs dist/portfolio.js
 ```
 
-Release: build, commit `dist/`, tag `vX.Y.Z`, push, then bump `VERSION` in the Webflow snippet.
+Release: build, commit `dist/`, push, then update `REF` (commit id) and `SRI` (sha384 hash) in the Webflow footer snippet. Releases are pinned by commit id; version numbers are recorded in CHANGELOG.md.
 
 See `DECISIONS.md` for implementation decisions and `CHANGELOG.md` for completed work.

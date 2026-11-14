@@ -1,7 +1,8 @@
 <!--
   Pasted into Webflow: Site Settings > Custom Code > Footer (before </body>).
 
-  Production: loads a pinned release from jsDelivr.
+  Production: loads a pinned commit from jsDelivr, checked with an integrity hash.
+  To release: build, push, then update REF (commit id) and SRI (sha384 of dist/portfolio.js).
   Dev mode: run `npm run dev`, then in the browser console on the staging site run
     localStorage.setItem('pi-dev', '1')   // turn on
     localStorage.removeItem('pi-dev')     // turn off
@@ -9,7 +10,8 @@
 -->
 <script>
   (function () {
-    var VERSION = 'v0.1.0';
+    var REF = '935443894500a829a9359d93a42ef0fc85e59ce8'; // v0.1.0
+    var SRI = 'sha384-sYo2ICxLI35Xoah4Jjvb4qibUrv2Rhu6TT676Ji+sDIQjZvP0N3ihgtDmw5TEUSK';
     var dev = false;
     try { dev = localStorage.getItem('pi-dev') === '1'; } catch (e) {}
     var s = document.createElement('script');
@@ -17,8 +19,9 @@
       s.type = 'module';
       s.src = 'http://localhost:5173/src/main.js';
     } else {
-      s.src = 'https://cdn.jsdelivr.net/gh/reinalikesanime/portfolio-interactions@' + VERSION + '/dist/portfolio.js';
-      s.defer = true;
+      s.src = 'https://cdn.jsdelivr.net/gh/reinalikesanime/portfolio-interactions@' + REF + '/dist/portfolio.js';
+      s.integrity = SRI;
+      s.crossOrigin = 'anonymous';
     }
     document.body.appendChild(s);
   })();
