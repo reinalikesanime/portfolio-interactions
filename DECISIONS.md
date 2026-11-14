@@ -18,10 +18,18 @@ Technical decisions, with the reason and who approved them. Creative decisions b
 |---|---|---|
 | 2026-11-13 | Hero headline copy | "A multidisciplinary designer with an inclusive approach." (Figma reads "An"; corrected in build) |
 | 2026-11-13 | Text color | All text #060606, including the hero headline (Figma has it at #000000) |
+| 2026-11-13 | Project stack motion | Physical stack: each card slides up over the previous one (not a wipe) |
+| 2026-11-13 | Card size | Full screen |
+| 2026-11-13 | Peeking | Next card peeks below the current one (Figma: 214px at 1440 wide) |
+| 2026-11-13 | Scroll feel | Exact, moves 1:1 with the scrollbar, no smoothing (to confirm) |
+| 2026-11-13 | Card text | Cards will carry text; designed with each thumbnail |
+| 2026-11-13 | Nav | Always visible; color changes to stay legible over each background |
 
 ## Pending decisions
 
-- Landing project stack (reference: sai-ku.com): wipe vs. slide, card height, whether cards peek, scroll smoothing, card text, nav over cards, phone/tablet behavior.
+- Project stack: what the covered card does as the next one slides over it (nothing, or a design treatment).
+- Nav color switching method (per-card theme vs. automatic blend).
+- Phone/tablet: hero layouts and whether the stack effect runs on phones.
 
 - Smooth scrolling library (Lenis proposed): confirm once scroll designs are in.
 - Page transitions: Barba.js vs. View Transitions API, once transition designs are in.
