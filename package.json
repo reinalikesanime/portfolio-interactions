@@ -1,0 +1,15 @@
+{
+  "name": "portfolio-interactions",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Custom interaction and animation code for the Reina Perez portfolio (Webflow).",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^7.0.0"
+  }
+}

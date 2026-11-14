@@ -1,0 +1,25 @@
+<!--
+  Pasted into Webflow: Site Settings > Custom Code > Footer (before </body>).
+
+  Production: loads a pinned release from jsDelivr.
+  Dev mode: run `npm run dev`, then in the browser console on the staging site run
+    localStorage.setItem('pi-dev', '1')   // turn on
+    localStorage.removeItem('pi-dev')     // turn off
+  and the page loads live code from the local dev server instead.
+-->
+<script>
+  (function () {
+    var VERSION = 'v0.1.0';
+    var dev = false;
+    try { dev = localStorage.getItem('pi-dev') === '1'; } catch (e) {}
+    var s = document.createElement('script');
+    if (dev) {
+      s.type = 'module';
+      s.src = 'http://localhost:5173/src/main.js';
+    } else {
+      s.src = 'https://cdn.jsdelivr.net/gh/reinalikesanime/portfolio-interactions@' + VERSION + '/dist/portfolio.js';
+      s.defer = true;
+    }
+    document.body.appendChild(s);
+  })();
+</script>
