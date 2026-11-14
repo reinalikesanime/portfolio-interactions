@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.2.1 (fix: project stack on the live site)
+
+- Live-site bug: Webflow's GSAP Interactions set a global overwrite:'auto', which cancelled the third card's second movement, so the last transition never ran. Also: after a window resize, cards waiting their turn kept their old positions.
+- Fix: card positions and darkening are now computed directly from scroll progress instead of tweened. Same result whether scrolling down, back up, jumping or resizing; unaffected by Webflow's GSAP settings.
+- Tested headless with Webflow's overwrite setting reproduced: all scroll steps, scroll back, resize mid-scroll, focus, reduced motion.
+
 ## v0.2.0 (landing: hero + project stack, desktop)
 
 - Webflow: nav (fixed), hero (Figma FINAL 1313:515 at 1440), project stack with 3 gray placeholder cards.
