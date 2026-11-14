@@ -12,7 +12,16 @@ Technical decisions, with the reason and who approved them. Creative decisions b
 | 2026-11-13 | Preview via `pi-ref` browser flag loading any pushed commit, instead of a localhost dev server | Claude's dev server runs in the cloud, so Reina's browser can't reach localhost | Claude (technical) |
 | 2026-11-13 | Modules attached with `data-module`, lazy-started near viewport | Survives layout changes in Webflow; keeps initial load light | Proposed in plan |
 
+## Design clarifications (from Reina)
+
+| Date | Item | Decision |
+|---|---|---|
+| 2026-11-13 | Hero headline copy | "A multidisciplinary designer with an inclusive approach." (Figma reads "An"; corrected in build) |
+| 2026-11-13 | Text color | All text #060606, including the hero headline (Figma has it at #000000) |
+
 ## Pending decisions
+
+- Landing project stack (reference: sai-ku.com): wipe vs. slide, card height, whether cards peek, scroll smoothing, card text, nav over cards, phone/tablet behavior.
 
 - Smooth scrolling library (Lenis proposed): confirm once scroll designs are in.
 - Page transitions: Barba.js vs. View Transitions API, once transition designs are in.
