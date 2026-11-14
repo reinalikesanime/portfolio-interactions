@@ -24,12 +24,14 @@ Technical decisions, with the reason and who approved them. Creative decisions b
 | 2026-11-13 | Scroll feel | Exact, moves 1:1 with the scrollbar, no smoothing (to confirm) |
 | 2026-11-13 | Card text | Cards will carry text; designed with each thumbnail |
 | 2026-11-13 | Nav | Always visible; color changes to stay legible over each background |
+| 2026-11-13 | Covered card | Darkens gradually as the next card slides over it |
+| 2026-11-13 | Nav color method | Per card: each card marked light/dark, nav switches between palette colors |
+| 2026-11-13 | Tablet/phone | On hold; build desktop first |
 
 ## Pending decisions
 
-- Project stack: what the covered card does as the next one slides over it (nothing, or a design treatment).
-- Nav color switching method (per-card theme vs. automatic blend).
-- Phone/tablet: hero layouts and whether the stack effect runs on phones.
+- Light nav color for dark cards (chosen when cards are designed).
+- Darkening amount for covered cards (placeholder value until card designs exist).
 
 - Smooth scrolling library (Lenis proposed): confirm once scroll designs are in.
 - Page transitions: Barba.js vs. View Transitions API, once transition designs are in.
