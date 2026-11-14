@@ -22,17 +22,20 @@ src/
   modules/           one file per interaction; registered in modules/index.js
   thumbnails/        one module per animated project thumbnail
   projects.js        project list
-webflow-loader.html  the snippet installed in Webflow's site footer
+webflow-loader.html  the snippet installed in Webflow's site footer (live + preview modes)
 ```
 
 ## Workflow
 
 ```
 npm install
-npm run dev      # local dev server on :5173 (enable with localStorage 'pi-dev')
 npm run build    # outputs dist/portfolio.js
 ```
 
 Release: build, commit `dist/`, push, then update `REF` (commit id) and `SRI` (sha384 hash) in the Webflow footer snippet. Releases are pinned by commit id; version numbers are recorded in CHANGELOG.md.
 
 See `DECISIONS.md` for implementation decisions and `CHANGELOG.md` for completed work.
+
+## Previewing changes
+
+Every pushed commit can be previewed on the real site in one browser by setting `localStorage.setItem('pi-ref', '<commit id>')`. Visitors keep getting the pinned live version.

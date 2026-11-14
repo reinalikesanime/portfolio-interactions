@@ -9,6 +9,7 @@ Technical decisions, with the reason and who approved them. Creative decisions b
 | 2026-11-13 | Motion lives in custom code; native Webflow Interactions only where clearly simpler (flagged when used) | Reina tweaks animations through Claude, not in Webflow directly | Reina |
 | 2026-11-13 | GSAP from Webflow's hosted GSAP, not bundled | Avoids shipping two copies; free and hosted by Webflow | Proposed in plan |
 | 2026-11-13 | Public GitHub repo `portfolio-interactions`, served via jsDelivr pinned to commit ids, with integrity hash | Free CDN, exact rollbacks; tag pushes are blocked from Claude's session, commit ids are equally fixed | Reina |
+| 2026-11-13 | Preview via `pi-ref` browser flag loading any pushed commit, instead of a localhost dev server | Claude's dev server runs in the cloud, so Reina's browser can't reach localhost | Claude (technical) |
 | 2026-11-13 | Modules attached with `data-module`, lazy-started near viewport | Survives layout changes in Webflow; keeps initial load light | Proposed in plan |
 
 ## Pending decisions

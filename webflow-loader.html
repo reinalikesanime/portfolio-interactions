@@ -1,28 +1,26 @@
 <!--
-  Pasted into Webflow: Site Settings > Custom Code > Footer (before </body>).
+  Installed in Webflow: Site Settings > Custom Code > Footer (before </body>).
 
-  Production: loads a pinned commit from jsDelivr, checked with an integrity hash.
+  Live: loads the pinned commit (REF) from jsDelivr, checked with an integrity hash (SRI).
   To release: build, push, then update REF (commit id) and SRI (sha384 of dist/portfolio.js).
-  Dev mode: run `npm run dev`, then in the browser console on the staging site run
-    localStorage.setItem('pi-dev', '1')   // turn on
-    localStorage.removeItem('pi-dev')     // turn off
-  and the page loads live code from the local dev server instead.
+
+  Preview: load any pushed commit in your own browser only, without changing the live site.
+    localStorage.setItem('pi-ref', '<commit id>')   // preview that commit
+    localStorage.removeItem('pi-ref')               // back to live
+  Visitors never have this flag set, so they always get the live version.
 -->
 <script>
   (function () {
     var REF = '935443894500a829a9359d93a42ef0fc85e59ce8'; // v0.1.0
     var SRI = 'sha384-sYo2ICxLI35Xoah4Jjvb4qibUrv2Rhu6TT676Ji+sDIQjZvP0N3ihgtDmw5TEUSK';
-    var dev = false;
-    try { dev = localStorage.getItem('pi-dev') === '1'; } catch (e) {}
+    var preview = null;
+    try { preview = localStorage.getItem('pi-ref'); } catch (e) {}
+    if (preview && !/^[0-9a-f]{7,40}$/.test(preview)) preview = null;
     var s = document.createElement('script');
-    if (dev) {
-      s.type = 'module';
-      s.src = 'http://localhost:5173/src/main.js';
-    } else {
-      s.src = 'https://cdn.jsdelivr.net/gh/reinalikesanime/portfolio-interactions@' + REF + '/dist/portfolio.js';
-      s.integrity = SRI;
-      s.crossOrigin = 'anonymous';
-    }
+    s.src = 'https://cdn.jsdelivr.net/gh/reinalikesanime/portfolio-interactions@' + (preview || REF) + '/dist/portfolio.js';
+    s.crossOrigin = 'anonymous';
+    if (!preview) s.integrity = SRI;
+    else console.info('[portfolio] Preview mode: ' + preview);
     document.body.appendChild(s);
   })();
 </script>
