@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.2.2 (project stack: clear screen when you arrive)
+
+- Removed the resting 214px peek so each card fills the whole screen when reached; the next card rises from the bottom edge to cover it (Reina's choice after reviewing staging).
+
 ## v0.2.1 (fix: project stack on the live site)
 
 - Live-site bug: Webflow's GSAP Interactions set a global overwrite:'auto', which cancelled the third card's second movement, so the last transition never ran. Also: after a window resize, cards waiting their turn kept their old positions.

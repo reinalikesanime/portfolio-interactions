@@ -20,13 +20,14 @@ Technical decisions, with the reason and who approved them. Creative decisions b
 | 2026-11-13 | Text color | All text #060606, including the hero headline (Figma has it at #000000) |
 | 2026-11-13 | Project stack motion | Physical stack: each card slides up over the previous one (not a wipe) |
 | 2026-11-13 | Card size | Full screen |
-| 2026-11-13 | Peeking | Next card peeks below the current one (Figma: 214px at 1440 wide) |
+| 2026-11-13 | Peeking | Next card peeks below the current one (Figma: 214px at 1440 wide). Superseded below. |
 | 2026-11-13 | Scroll feel | Exact, moves 1:1 with the scrollbar, no smoothing (to confirm) |
 | 2026-11-13 | Card text | Cards will carry text; designed with each thumbnail |
 | 2026-11-13 | Nav | Always visible; color changes to stay legible over each background |
 | 2026-11-13 | Covered card | Darkens gradually as the next card slides over it |
 | 2026-11-13 | Nav color method | Per card: each card marked light/dark, nav switches between palette colors |
 | 2026-11-13 | Tablet/phone | On hold; build desktop first |
+| 2026-11-13 | Clear screen when you arrive | Each card fills the whole screen (width and height) when reached; the next card rises from the bottom edge and covers it. No resting peek (peek: 0). |
 
 ## Pending decisions
 

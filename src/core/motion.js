@@ -6,9 +6,11 @@
 
 export const motion = {
   stack: {
-    // How much of the next card shows at the bottom of the screen (px).
-    // From Figma: cards offset by 214px in the 1440-wide frame.
-    peek: 214,
+    // How much of the next card rests at the bottom of the screen (px).
+    // 0 = no resting peek: each card fills the whole screen when reached, and
+    // the next card rises from the bottom edge to cover it (Reina, 2026-11-13,
+    // "clear screen when you arrive"). Was 214 (Figma offset).
+    peek: 0,
     // Opacity of the dark overlay on a card once it's fully covered.
     // PLACEHOLDER: "darkens gradually" approved; exact amount not designed yet.
     coveredShade: 0.5,
