@@ -5,6 +5,7 @@
 - `thumb-video` module: video rests on its first frame; hover (image only) or keyboard focus plays it from the start, looping; leaving pauses and resets to the first frame. Touch: plays while at least half on screen, resets when scrolled away. Reduced motion on touch: stays on first frame. Lazy: starts loading near the viewport.
 - Video `assets/thumbnails/thumb2-prototype.mp4` (16s, 60fps, 324x704, 918 KB) from the 2026-11-14 6:13 PM recording: Figma's prototype only updated the scroll every 2-4 frames (jump-and-hold judder). Fixed by dropping held frames and motion-interpolating to 60fps (scene-cut detection keeps instant screen changes clean). Ends with a 0.4s crossfade into the exact first frame for a seamless loop. Poster: `thumb2-prototype-poster.jpg`.
 - Served from jsDelivr (Webflow can't host plain video files).
+- Webflow: tile 2 = purple stage (#843EFD), phone mockup (Figma 1356:1191 at 2x, asset thumb2-phone.png), video in the screen area (left 4%, top 1.6%, 91% x 96.7%, radius 16.8%/7.7%; sized ~0.5px past the green edge, verified 0 green pixels at 4x), CSS dynamic island (#0D0D0D).
 
 ## 2026-11-14 (Webflow only): Artful thumbnail images v2
 
