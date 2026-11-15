@@ -28,11 +28,12 @@ Technical decisions, with the reason and who approved them. Creative decisions b
 | 2026-11-13 | Nav color method | Per card: each card marked light/dark, nav switches between palette colors |
 | 2026-11-13 | Tablet/phone | On hold; build desktop first |
 | 2026-11-13 | Clear screen when you arrive | Each card fills the whole screen (width and height) when reached; the next card rises from the bottom edge and covers it. No resting peek (peek: 0). |
+| 2026-11-14 | Landing projects layout | Scrolling project stack replaced by a static 2x2 thumbnail grid (Figma FINAL 1313:515, grid 1332:391) so everything is visible at a glance. No interactions yet. `project-stack` module kept in the repo, unused, in case it's wanted later. |
 
 ## Pending decisions
 
 - Light nav color for dark cards (chosen when cards are designed).
-- Darkening amount for covered cards (placeholder value until card designs exist).
+- Spacing below the grid (40px used; Figma frame ends before the grid does).
 
 - Smooth scrolling library (Lenis proposed): confirm once scroll designs are in.
 - Page transitions: Barba.js vs. View Transitions API, once transition designs are in.

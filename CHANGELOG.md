@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-11-14 (Webflow only, no code change): thumbnail grid
+
+- Replaced the project stack with a 2-column thumbnail grid from Figma: 4 tiles, gray 666x450 media placeholder, caption row (title Switzer semibold 20px left, year regular right), 23px gaps, 39/40px side margins.
+- Hero height 890 -> 826px to match the new frame.
+- Added Switzer 600 to the font loading. Removed the stack's Webflow classes.
+- Grid sizing is fluid: tiles keep the 666:450 shape at other widths (tablet/phone layouts still on hold).
+
 ## v0.2.2 (project stack: clear screen when you arrive)
 
 - Removed the resting 214px peek so each card fills the whole screen when reached; the next card rises from the bottom edge to cover it (Reina's choice after reviewing staging).
