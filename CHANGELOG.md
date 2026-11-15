@@ -1,9 +1,9 @@
 # Changelog
 
-## v0.4.0 (second thumbnail: Tune video on hover)
+## v0.4.0 (second thumbnail: prototype video on hover)
 
 - `thumb-video` module: video rests on its first frame; hover (image only) or keyboard focus plays it from the start, looping; leaving pauses and resets to the first frame. Touch: plays while at least half on screen, resets when scrolled away. Reduced motion on touch: stays on first frame. Lazy: starts loading near the viewport.
-- Video `assets/thumbnails/thumb2-tune.mp4` (16s, 60fps, 324x704, 918 KB) from the 2026-11-14 6:13 PM recording: Figma's prototype only updated the scroll every 2-4 frames (jump-and-hold judder). Fixed by dropping held frames and motion-interpolating to 60fps (scene-cut detection keeps instant screen changes clean). Ends with a 0.4s crossfade into the exact first frame for a seamless loop. Poster: `thumb2-tune-poster.jpg`.
+- Video `assets/thumbnails/thumb2-prototype.mp4` (16s, 60fps, 324x704, 918 KB) from the 2026-11-14 6:13 PM recording: Figma's prototype only updated the scroll every 2-4 frames (jump-and-hold judder). Fixed by dropping held frames and motion-interpolating to 60fps (scene-cut detection keeps instant screen changes clean). Ends with a 0.4s crossfade into the exact first frame for a seamless loop. Poster: `thumb2-prototype-poster.jpg`.
 - Served from jsDelivr (Webflow can't host plain video files).
 
 ## 2026-11-14 (Webflow only): Artful thumbnail images v2
