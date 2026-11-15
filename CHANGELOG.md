@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-14 (Webflow only): thumbnail grid update
+
+- From updated Figma (grid 1332:391): 30px column/row gaps, 40px left margin, 20px between image and caption.
+- Caption is now stacked: title (Switzer semibold, #060606) over a description (regular, #060606 at 60%, max 595px wide). Year removed; class renamed project-tile-year -> project-tile-description.
+- Placeholder copy from Figma: "ARTFUL" / "Tangible IoT design for intergenerational connection." on all four tiles.
+
 ## 2026-11-14 (Webflow only, no code change): thumbnail grid
 
 - Replaced the project stack with a 2-column thumbnail grid from Figma: 4 tiles, gray 666x450 media placeholder, caption row (title Switzer semibold 20px left, year regular right), 23px gaps, 39/40px side margins.
