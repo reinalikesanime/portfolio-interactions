@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-14 (Webflow only): Artful thumbnail images v2
+
+- Swapped the first tile's images to Figma 1343:487 (default) and 1343:494 (hover), exported at 2x as artful-thumb-default-v2 / artful-thumb-hover-v2. Picture frame now stays the same size between states. The v1 assets remain in the Webflow asset library.
+
 ## v0.3.1 (Artful thumbnail live)
 
 - Hover now limited to the image (caption no longer triggers it). Mouse-out fade confirmed.
