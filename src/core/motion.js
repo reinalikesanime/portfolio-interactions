@@ -17,6 +17,15 @@ export const motion = {
     // Shade color (the site's ink color).
     shadeColor: '#060606',
   },
+  thumbFade: {
+    // Hover crossfade on project thumbnails (approved 2026-11-14: fade, 0.6s).
+    duration: 0.6,
+    // Gentle slow-down at the end.
+    ease: 'power2.out',
+    // Touch devices: play once when this much of the thumbnail is on screen
+    // ("center bottom" = the image's middle reaches the bottom of the screen).
+    touchStart: 'center bottom',
+  },
   nav: {
     // Nav text color for each background theme set with data-nav-theme.
     // "light" background -> dark text. "dark" background -> light text.

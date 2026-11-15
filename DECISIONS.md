@@ -29,6 +29,7 @@ Technical decisions, with the reason and who approved them. Creative decisions b
 | 2026-11-13 | Tablet/phone | On hold; build desktop first |
 | 2026-11-13 | Clear screen when you arrive | Each card fills the whole screen (width and height) when reached; the next card rises from the bottom edge and covers it. No resting peek (peek: 0). |
 | 2026-11-14 | Landing projects layout | Scrolling project stack replaced by a static 2x2 thumbnail grid (Figma FINAL 1313:515, grid 1332:391) so everything is visible at a glance. No interactions yet. `project-stack` module kept in the repo, unused, in case it's wanted later. |
+| 2026-11-14 | Artful thumbnail hover | Crossfade from Figma 1332:420 to 1332:424, 0.6s. Touch devices: plays as the thumbnail scrolls into view. Mouse-out reverses (Claude's default; not yet confirmed). Hover area is the whole tile (image + caption). |
 
 ## Pending decisions
 

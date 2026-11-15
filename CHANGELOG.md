@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.3.0 (thumbnail hover fade: Artful)
+
+- `thumb-fade` module: two stacked images per thumbnail; hover or keyboard focus fades the hover image in over 0.6s (power2.out), leaving fades it out. Touch devices: fades in once when the thumbnail's middle reaches the bottom of the screen.
+- Settings in `motion.thumbFade`.
+- Tested headless: mouse hover in/out, keyboard focus, touch (390x844) scroll-in, with Webflow's overwrite setting reproduced.
+
 ## 2026-11-14 (Webflow only): thumbnail grid update
 
 - From updated Figma (grid 1332:391): 30px column/row gaps, 40px left margin, 20px between image and caption.
