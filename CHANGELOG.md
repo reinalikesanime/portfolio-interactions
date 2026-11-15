@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.3.1 (Artful thumbnail live)
+
+- Hover now limited to the image (caption no longer triggers it). Mouse-out fade confirmed.
+- `thumb-fade` can be attached to the hover image itself (Webflow rejected attribute edits on the original tile elements).
+- Webflow: Artful images uploaded as assets (Figma 1332:420 / 1332:424 at 2x, 1332x900 JPG) and stacked in the first tile.
+
 ## v0.3.0 (thumbnail hover fade: Artful)
 
 - `thumb-fade` module: two stacked images per thumbnail; hover or keyboard focus fades the hover image in over 0.6s (power2.out), leaving fades it out. Touch devices: fades in once when the thumbnail's middle reaches the bottom of the screen.
