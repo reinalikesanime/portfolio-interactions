@@ -6,6 +6,9 @@
 // box clips the zoom. Mouse/trackpad only; nothing on touch or reduced motion.
 //
 // Attaches by selector: .project-tile-media (tiles without images are skipped).
+// Video thumbnails (2026-11-17): when the media box has a .thumb-stage holding
+// an image or video, the whole stage zooms, so the phone and the video playing
+// on its screen stay aligned.
 
 import { motion } from '../core/motion.js';
 
@@ -13,7 +16,10 @@ export default {
   selector: '.project-tile-media',
   init(media, { mm }) {
     const gsap = window.gsap;
-    const imgs = Array.from(media.querySelectorAll('img'));
+    const stage = media.querySelector('.thumb-stage');
+    const imgs = stage && stage.querySelector('img, video')
+      ? [stage]
+      : Array.from(media.querySelectorAll('img'));
     if (!imgs.length) return;
     const tile = media.closest('.project-tile') || media;
     const { scale, duration, ease } = motion.thumbZoom;
