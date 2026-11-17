@@ -23,7 +23,7 @@ Technical decisions, with the reason and who approved them. Creative decisions b
 | 2026-11-13 | Peeking | Next card peeks below the current one (Figma: 214px at 1440 wide). Superseded below. |
 | 2026-11-13 | Scroll feel | Exact, moves 1:1 with the scrollbar, no smoothing (to confirm) |
 | 2026-11-13 | Card text | Cards will carry text; designed with each thumbnail |
-| 2026-11-13 | Nav | Always visible; color changes to stay legible over each background |
+| 2026-11-13 | Nav | Always visible; color changes to stay legible over each background. Superseded 2026-11-17. |
 | 2026-11-13 | Covered card | Darkens gradually as the next card slides over it |
 | 2026-11-13 | Nav color method | Per card: each card marked light/dark, nav switches between palette colors |
 | 2026-11-13 | Tablet/phone | On hold; build desktop first |
@@ -34,6 +34,7 @@ Technical decisions, with the reason and who approved them. Creative decisions b
 | 2026-11-17 | Second thumbnail | Replaced by static Twitch mockup; no interactions on thumbnails 2-4 for now. Hover video retired (code kept). |
 | 2026-11-17 | Hero fade-in | Hero text and scroll cue fade in gently on load (opacity only). Timings are placeholders (1.2s, cue +0.4s). |
 | 2026-11-17 | Arrows grow on scroll | Arrows grow into their designed shape as the page scrolls. Placeholders: start at 30% length, full at 300px of scroll. |
+| 2026-11-17 | Nav position | Navbar stays at the top of the page and scrolls away (no longer pinned). |
 
 ## Pending decisions
 

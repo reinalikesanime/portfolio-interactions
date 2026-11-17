@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-17 (Webflow only): navbar scrolls with the page
+
+- `.site-nav` position fixed -> absolute: the navbar (name + links) sits 64px from the top of the page and scrolls away with the hero. The `nav-theme` module still runs but has no visible effect now.
+
 ## v0.5.0 (hero fade-in + growing arrows)
 
 - `hero-intro` module: on load, hero text fades in (1.2s, power2.out), then the "SCROLL FOR WORKS" cue 0.4s later. Waits up to 1s for web fonts. Site head hides both blocks via `html.js-intro` until then; failsafe removes the class after 4s if the script never loads. Reduced motion: shown immediately.
