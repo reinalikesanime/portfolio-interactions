@@ -31,6 +31,7 @@ Technical decisions, with the reason and who approved them. Creative decisions b
 | 2026-11-14 | Landing projects layout | Scrolling project stack replaced by a static 2x2 thumbnail grid (Figma FINAL 1313:515, grid 1332:391) so everything is visible at a glance. No interactions yet. `project-stack` module kept in the repo, unused, in case it's wanted later. |
 | 2026-11-14 | Artful thumbnail hover | Crossfade from Figma 1332:420 to 1332:424, 0.6s. Touch devices: plays as the thumbnail scrolls into view. Mouse-out fades back (confirmed). Hover area: image only (confirmed). |
 | 2026-11-14 | Second thumbnail | Figma 1348:1136 (purple 666x450) + phone mockup 1356:1191; recording replaces the green screen. Plays only on hover, otherwise first frame. Touch: plays while on screen (matches Artful). Dynamic island redrawn in CSS over the video (measured from Figma). |
+| 2026-11-17 | Second thumbnail | Replaced by static Twitch mockup; no interactions on thumbnails 2-4 for now. Hover video retired (code kept). |
 
 ## Pending decisions
 

@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-11-17 (Webflow only): landing page redesign, round 3
+
+- From Figma FINAL 1313:515 (updated): nav name semibold; hero block at 266px, headline 68px / 885px wide (kept "A multidisciplinary"), subtitle 24px; new "SCROLL FOR WORKS" label + new arrows at 614px; grid bottom padding 101px; descriptions Switzer Light (300 added to font loading).
+- Thumbnail 1 (Artful): unchanged, hover fade kept.
+- Thumbnail 2 (Twitch: Redesign): video + purple stage removed; static iPhone mockup (Figma 1369:1273 at 2x incl. shadow) on #EEE. thumb-video module and video files kept in repo, unused.
+- Thumbnail 3 (WoofWatch): static phone mockup (Figma 1369:1334 at 2x incl. shadow) on #EDEDED.
+- Thumbnail 4: #EEE placeholder; caption duplicates Artful as in Figma.
+- Verified live at 1440x900 against Figma positions; no console errors.
+
 ## v0.4.0 (second thumbnail: prototype video on hover)
 
 - `thumb-video` module: video rests on its first frame; hover (image only) or keyboard focus plays it from the start, looping; leaving pauses and resets to the first frame. Touch: plays while at least half on screen, resets when scrolled away. Reduced motion on touch: stays on first frame. Lazy: starts loading near the viewport.
