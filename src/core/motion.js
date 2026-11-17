@@ -26,6 +26,22 @@ export const motion = {
     // ("center bottom" = the image's middle reaches the bottom of the screen).
     touchStart: 'center bottom',
   },
+  heroIntro: {
+    // Page-load fade-in of the hero text, then the "SCROLL FOR WORKS" cue
+    // (approved 2026-11-17: "gently fade in"). Opacity only, no movement.
+    // PLACEHOLDER timings: not specified in design.
+    duration: 1.2,
+    ease: 'power2.out',
+    cueDelay: 0.4, // cue starts this long after the hero text
+    maxFontWait: 1, // seconds to wait for web fonts before fading in anyway
+  },
+  arrowGrow: {
+    // Hero arrows grow into their full shape as the page scrolls
+    // (approved 2026-11-17). Stems lengthen downward, heads ride the tips.
+    // PLACEHOLDER values: not specified in design.
+    startLength: 0.3, // stem length at the top of the page (share of full)
+    scrollDistance: 300, // px of scrolling to reach full length
+  },
   nav: {
     // Nav text color for each background theme set with data-nav-theme.
     // "light" background -> dark text. "dark" background -> light text.

@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.5.0 (hero fade-in + growing arrows)
+
+- `hero-intro` module: on load, hero text fades in (1.2s, power2.out), then the "SCROLL FOR WORKS" cue 0.4s later. Waits up to 1s for web fonts. Site head hides both blocks via `html.js-intro` until then; failsafe removes the class after 4s if the script never loads. Reduced motion: shown immediately.
+- `arrow-grow` module: splits each arrow into stem + head; over the first 300px of scrolling, stems grow from 30% to full length (top anchored) and heads ride the tips. Reverses on scroll up. Reduced motion: full arrows.
+- Loader: modules can attach by CSS selector (`selector` property), since some original Webflow elements reject attribute edits.
+- Tested headless: fade timing, arrow geometry at 0/150/300/600px and scrolling back, reduced motion; no errors.
+
 ## 2026-11-17 (Webflow only): landing page redesign, round 3
 
 - From Figma FINAL 1313:515 (updated): nav name semibold; hero block at 266px, headline 68px / 885px wide (kept "A multidisciplinary"), subtitle 24px; new "SCROLL FOR WORKS" label + new arrows at 614px; grid bottom padding 101px; descriptions Switzer Light (300 added to font loading).

@@ -11,6 +11,15 @@ export function initModules(root, registry) {
   const els = root.querySelectorAll('[data-module]');
   const lazyObserver = new IntersectionObserver(onIntersect, { rootMargin: '200px 0px' });
 
+  const attach = (el, name, mod) => {
+    if (mod.lazy) {
+      el.__pendingModules = (el.__pendingModules || []).concat(name);
+      lazyObserver.observe(el);
+    } else {
+      start(el, name, mod);
+    }
+  };
+
   els.forEach((el) => {
     el.dataset.module.split(/\s+/).forEach((name) => {
       const mod = registry[name];
@@ -18,13 +27,15 @@ export function initModules(root, registry) {
         console.warn(`[portfolio] Unknown module "${name}"`, el);
         return;
       }
-      if (mod.lazy) {
-        el.__pendingModules = (el.__pendingModules || []).concat(name);
-        lazyObserver.observe(el);
-      } else {
-        start(el, name, mod);
-      }
+      attach(el, name, mod);
     });
+  });
+
+  // Modules can also attach by CSS selector (mod.selector), for elements whose
+  // Webflow attributes can't be edited. Same start-once rules apply.
+  Object.entries(registry).forEach(([name, mod]) => {
+    if (!mod.selector) return;
+    root.querySelectorAll(mod.selector).forEach((el) => attach(el, name, mod));
   });
 
   function onIntersect(entries) {
