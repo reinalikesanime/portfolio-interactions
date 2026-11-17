@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.6.0 (arrows start invisible + thumbnail hover zoom)
+
+- Arrows updated to Figma's thinner version (1px stems, smaller heads; SVG 171x40 at -2.91px).
+- `arrow-grow`: arrows start invisible (stem length 0), heads fade in over the first 15% of growth; full shape at 300px of scroll.
+- `thumb-zoom` module (selector `.project-tile-media`): hover/focus zooms the image(s) inside to 104% (0.6s, power2.out), back on leave; runs alongside the Artful fade. Mouse/trackpad only; skipped on touch and reduced motion; tiles without images skipped.
+- Tested headless: arrow geometry/visibility at 0/20/45/150/300px, fade + zoom together, caption hover ignored.
+
 ## 2026-11-17 (Webflow only): navbar scrolls with the page
 
 - `.site-nav` position fixed -> absolute: the navbar (name + links) sits 64px from the top of the page and scrolls away with the hero. The `nav-theme` module still runs but has no visible effect now.

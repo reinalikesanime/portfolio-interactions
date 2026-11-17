@@ -39,8 +39,19 @@ export const motion = {
     // Hero arrows grow into their full shape as the page scrolls
     // (approved 2026-11-17). Stems lengthen downward, heads ride the tips.
     // PLACEHOLDER values: not specified in design.
-    startLength: 0.3, // stem length at the top of the page (share of full)
+    // Arrows start invisible at the top of the page (Reina, 2026-11-17): stems
+    // grow from zero length and the heads fade in over the first part.
+    startLength: 0, // stem length at the top of the page (share of full)
+    headFadeIn: 0.15, // share of the growth over which the heads fade in
     scrollDistance: 300, // px of scrolling to reach full length
+  },
+  thumbZoom: {
+    // Subtle zoom of the image inside a thumbnail on hover (approved
+    // 2026-11-17), alongside any existing hover effect. Mouse/trackpad only.
+    // PLACEHOLDER amount: "subtle" requested, exact value not specified.
+    scale: 1.04,
+    duration: 0.6, // matches the Artful fade
+    ease: 'power2.out',
   },
   nav: {
     // Nav text color for each background theme set with data-nav-theme.

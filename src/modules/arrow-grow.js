@@ -4,7 +4,8 @@
 // This module splits each path into a stem and a head, then, tied to scroll:
 // the stem lengthens downward from its top, and the head rides its tip, until
 // the arrows reach their designed shape. Scrolling back up shortens them again.
-// Reduced motion: arrows stay at their full designed shape.
+// The arrows start invisible: stems grow from zero and the heads fade in early
+// in the growth. Reduced motion: arrows stay at their full designed shape.
 //
 // Attaches by selector: .hero-arrows-icon
 
@@ -49,7 +50,7 @@ export default {
     });
     if (!arrows.length) return;
 
-    const { startLength, scrollDistance } = motion.arrowGrow;
+    const { startLength, scrollDistance, headFadeIn } = motion.arrowGrow;
 
     mm.add((ctx) => {
       if (ctx.conditions.reduceMotion) return undefined;
@@ -69,15 +70,23 @@ export default {
         tl.fromTo(
           stem,
           { scaleY: startLength, transformOrigin: '50% 0%' },
-          { scaleY: 1, immediateRender: true, overwrite: false },
+          { scaleY: 1, duration: 1, immediateRender: true, overwrite: false },
           0
         );
         tl.fromTo(
           head,
           { y: -len * (1 - startLength) },
-          { y: 0, immediateRender: true, overwrite: false },
+          { y: 0, duration: 1, immediateRender: true, overwrite: false },
           0
         );
+        if (startLength === 0 && headFadeIn > 0) {
+          tl.fromTo(
+            head,
+            { autoAlpha: 0 },
+            { autoAlpha: 1, duration: headFadeIn, immediateRender: true, overwrite: false },
+            0
+          );
+        }
       });
 
       return () => {
@@ -85,7 +94,7 @@ export default {
         tl.kill();
         gsap.set(
           arrows.flatMap((a) => [a.stem, a.head]),
-          { clearProps: 'transform' }
+          { clearProps: 'transform,opacity,visibility' }
         );
       };
     });

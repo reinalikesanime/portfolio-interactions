@@ -7,6 +7,7 @@ import thumbFade from './thumb-fade.js';
 import thumbVideo from './thumb-video.js';
 import heroIntro from './hero-intro.js';
 import arrowGrow from './arrow-grow.js';
+import thumbZoom from './thumb-zoom.js';
 
 export const modules = {
   'project-stack': projectStack,
@@ -15,4 +16,5 @@ export const modules = {
   'thumb-video': thumbVideo,
   'hero-intro': heroIntro,
   'arrow-grow': arrowGrow,
+  'thumb-zoom': thumbZoom,
 };

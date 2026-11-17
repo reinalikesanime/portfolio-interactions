@@ -33,8 +33,9 @@ Technical decisions, with the reason and who approved them. Creative decisions b
 | 2026-11-14 | Second thumbnail | Figma 1348:1136 (purple 666x450) + phone mockup 1356:1191; recording replaces the green screen. Plays only on hover, otherwise first frame. Touch: plays while on screen (matches Artful). Dynamic island redrawn in CSS over the video (measured from Figma). |
 | 2026-11-17 | Second thumbnail | Replaced by static Twitch mockup; no interactions on thumbnails 2-4 for now. Hover video retired (code kept). |
 | 2026-11-17 | Hero fade-in | Hero text and scroll cue fade in gently on load (opacity only). Timings are placeholders (1.2s, cue +0.4s). |
-| 2026-11-17 | Arrows grow on scroll | Arrows grow into their designed shape as the page scrolls. Placeholders: start at 30% length, full at 300px of scroll. |
+| 2026-11-17 | Arrows grow on scroll | Arrows start invisible (Reina) and grow into their designed shape as the page scrolls. Placeholder: full at 300px of scroll. |
 | 2026-11-17 | Nav position | Navbar stays at the top of the page and scrolls away (no longer pinned). |
+| 2026-11-17 | Thumbnail hover zoom | Image inside each thumbnail zooms in subtly on hover, alongside existing effects. Placeholder: 104%, 0.6s. Hover devices only. |
 
 ## Pending decisions
 
