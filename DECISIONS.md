@@ -46,3 +46,10 @@ Technical decisions, with the reason and who approved them. Creative decisions b
 - Page transitions: Barba.js vs. View Transitions API, once transition designs are in.
 - Breakpoint values in `src/core/media.js`: match to Figma frames.
 - Thumbnail method per project: decided one project at a time, starting with a pilot.
+
+## 2026-11-17 — Video thumbnails (Twitch: Redesign, WoofWatch)
+- Reina: videos play on hover, with only the start screen as the static image.
+- Reina: use the recordings she sent as-is; do not use the smoothed version. Encoded only for web (354x770, H.264, muted). No loop crossfade, so the loop jumps from last frame to start screen.
+- Static image = Figma export of each tile frame (1364:1246, 1364:1261) at 2x. Video overlays the Figma content frame (Twitch 243.52,41 177x367.46; WoofWatch 244.05,32.05 177x385; radius 18.83px), object-fit cover like Figma's FILL.
+- Video hidden until playing (implementation choice so the still always matches Figma exactly).
+- Zoom applies to the whole .thumb-stage on video tiles.

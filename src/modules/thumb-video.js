@@ -8,6 +8,11 @@
 //
 // The video only starts downloading when the thumbnail is near the viewport.
 //
+// 2026-11-17: the video stays hidden until it is actually playing, so the
+// still thumbnail is always Reina's Figma export (start screen). It hides
+// again when stopped. The first frame matches the still, so the swap is
+// invisible.
+//
 // Webflow markup (data-module can sit on any element inside the tile's media box):
 //   div.project-tile-media
 //     div[data-module="thumb-video"]
@@ -27,6 +32,11 @@ export default {
     video.setAttribute('playsinline', '');
     video.preload = 'auto'; // near the viewport now: fetch so hover starts instantly
 
+    const show = () => { video.style.opacity = '1'; };
+    const hide = () => { video.style.opacity = '0'; };
+    hide();
+    video.addEventListener('playing', show);
+
     const play = () => {
       const p = video.play();
       if (p && p.catch) p.catch(() => {});
@@ -37,6 +47,7 @@ export default {
     };
     const stop = () => {
       video.pause();
+      hide();
       try { video.currentTime = 0; } catch (e) {}
     };
 

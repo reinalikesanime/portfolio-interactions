@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.7.0 — 2026-11-17
+
+- Twitch: Redesign and WoofWatch thumbnails now show Reina's Figma frame (phone on its start screen) and play her screen recording on hover, over the phone screen with rounded corners; looping. Leaving stops it and returns to the start screen. Touch: plays while on screen.
+- Videos are Reina's original recordings, only resized to 354x770 and with audio removed (no smoothing, no loop blend — per Reina).
+- The video stays hidden until it is actually playing, so the still is always the Figma export.
+- Hover zoom now scales the whole thumbnail stage, so phone and video stay aligned.
+- Removed the old static phone mockups from tiles 2 and 3.
+
 ## v0.6.0 (arrows start invisible + thumbnail hover zoom)
 
 - Arrows updated to Figma's thinner version (1px stems, smaller heads; SVG 171x40 at -2.91px).
