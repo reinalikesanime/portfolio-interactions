@@ -76,3 +76,10 @@ Technical decisions, with the reason and who approved them. Creative decisions b
 - Reina: "double check sections are centered" -> every section that fits the screen is centered. Taller-than-screen sections: heading at 30%.
 - Known limit: Conclusion is the last section and the page ends below it, so it can't scroll up to center (lands lower). Centering it would need extra space at the bottom of the page — a design change, not made; flagged to Reina.
 - Testing note: the hidden browser pane draws no frames, so smooth scrolling can't be verified there; tested in local headless Chrome with a stand-in for Webflow's handler.
+
+## 2026-11-22 — Artful case study copy
+- Reina: fill placeholder text on the Artful page from the project file (Figma nSU1Y7dgf6ZpRFvWNhL8nJ, "Team: The Jack Rabbits"); text only, no images yet. Template re-read (1398:2): Overview now real Artful text; intro block gap 60 -> 40.
+- Sources: 5 - Final Documentation (research quotes, key takeaways, design principles, Why Art?, concept, system flow), 2 - Presentation (participants, four research insights, HMW question), Pamphlet (privacy Q&A), Deliverables for 6/2 (task split: Reina on Muse + Etch sketches, Etch digital interface, pamphlet copy + layout).
+- Not invented: Final Reflection slide is empty, so Conclusion summarizes documented outcomes rather than personal takeaways. MY ROLE and DURATION left as in Reina's template (file suggests the project ran spring 2026, e.g. deliverables due 6/2, an NPR source dated 2026-05-12, screenshots dated 2026-06-10, but the template says April–June 2025) — flagged to Reina.
+- Overview copied exactly from Reina's template, including "your own. Imprint display frame" (the final deck reads "your own Imprint display frame") — flagged, not changed.
+- Context & Challenge keeps the template's pattern of a bold closing line (the HMW question).
