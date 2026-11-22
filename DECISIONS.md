@@ -65,3 +65,4 @@ Technical decisions, with the reason and who approved them. Creative decisions b
   - Clicking scrolls smoothly; the section lands 64px from the top.
   - Navbar links other than REINA PEREZ (home) are still placeholders, as on the homepage.
 - Site is on the Basic plan (no CMS), so each work page is a static page.
+- Context & Challenge frame in Figma is 184px tall (16px more than its contents); matched with combo class cs-section-context (padding-bottom 15.5px) so later sections land where Figma has them. Verified live: sections within 2–4px of Figma (line-height rounding).
