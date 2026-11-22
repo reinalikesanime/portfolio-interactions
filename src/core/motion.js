@@ -53,6 +53,20 @@ export const motion = {
     duration: 0.6, // matches the Artful fade
     ease: 'power2.out',
   },
+  pageNav: {
+    // Work-page section nav (approved 2026-11-22). The current section's title
+    // turns semibold and fully opaque; the others sit at 60% (from Figma).
+    activeOpacity: 1,
+    inactiveOpacity: 0.6,
+    duration: 0.3, // "quick fade" (Reina, 2026-11-22)
+    ease: 'power2.out',
+    // A section becomes current once its top passes this line (share of the
+    // screen height from the top). PLACEHOLDER: not specified in design.
+    activeLine: 0.25,
+    // Clicking a title scrolls so the section starts this far from the top
+    // (px), level with where the sticky nav sits (64px, same as the navbar).
+    scrollOffset: 64,
+  },
   nav: {
     // Nav text color for each background theme set with data-nav-theme.
     // "light" background -> dark text. "dark" background -> light text.

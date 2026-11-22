@@ -6,17 +6,21 @@
 // them in and removes the class. The head also removes the class after a few
 // seconds if this script never arrives, so the text can't stay hidden.
 //
-// Attaches by selector: .hero
+// Attaches by selector: .hero (homepage) and .cs-main (work pages).
+// Work pages (approved 2026-11-22, "title, then the rest"): the title block
+// fades in first, then the page nav + content, with the same timing as the
+// homepage text and cue.
 
 import { motion } from '../core/motion.js';
 
 export default {
-  selector: '.hero',
+  selector: '.hero, .cs-main',
   init(hero) {
     const gsap = window.gsap;
     const root = document.documentElement;
-    const text = hero.querySelector('.hero-content');
-    const cue = hero.querySelector('.hero-arrows');
+    const isWork = hero.matches('.cs-main');
+    const text = hero.querySelector(isWork ? '.cs-title-block' : '.hero-content');
+    const cue = hero.querySelector(isWork ? '.cs-body' : '.hero-arrows');
     const targets = [text, cue].filter(Boolean);
     if (!targets.length) {
       root.classList.remove('js-intro');

@@ -1,0 +1,96 @@
+// Work-page section nav (approved 2026-11-22).
+//
+// The nav column stays fixed beside the content (CSS position: sticky on
+// .cs-nav, top 64px). As the reader scrolls, the title of the section they're
+// in turns semibold and fully opaque; the rest stay regular at 60%. Opacity
+// fades quickly; the weight swaps at the start of the fade. Clicking a title
+// scrolls to that section (smoothly; instantly with reduced motion).
+//
+// Webflow markup:
+//   aside.cs-nav > a.cs-nav-link[href="#section-id"]  (one per section)
+//   section#section-id                                 (anywhere on the page)
+//
+// Attaches by selector: .cs-nav
+
+import { motion } from '../core/motion.js';
+
+export default {
+  selector: '.cs-nav',
+  init(nav) {
+    const gsap = window.gsap;
+    const ScrollTrigger = window.ScrollTrigger;
+    const cfg = motion.pageNav;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const items = Array.from(nav.querySelectorAll('a[href^="#"]'))
+      .map((link) => ({ link, section: document.getElementById(decodeURIComponent(link.hash.slice(1))) }))
+      .filter((it) => it.section);
+    if (!items.length) return;
+
+    let current = -1;
+    const setActive = (index, instant) => {
+      if (index === current) return;
+      current = index;
+      items.forEach((it, i) => {
+        const on = i === index;
+        it.link.style.fontWeight = on ? '600' : '400';
+        if (on) it.link.setAttribute('aria-current', 'true');
+        else it.link.removeAttribute('aria-current');
+        gsap.to(it.link, {
+          opacity: on ? cfg.activeOpacity : cfg.inactiveOpacity,
+          duration: instant || reduce ? 0 : cfg.duration,
+          ease: cfg.ease,
+          overwrite: 'auto',
+        });
+      });
+    };
+
+    const update = (instant) => {
+      const line = window.innerHeight * cfg.activeLine;
+      let index = 0; // before any section reaches the line: the first one
+      items.forEach((it, i) => {
+        if (it.section.getBoundingClientRect().top <= line) index = i;
+      });
+      // At the very bottom of the page, the last section counts as current
+      // even if it's too short to reach the line.
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      if (window.scrollY >= maxScroll - 2) index = items.length - 1;
+      setActive(index, instant);
+    };
+
+    const onClick = (e) => {
+      const it = items.find((x) => x.link === e.currentTarget);
+      if (!it) return;
+      e.preventDefault();
+      const y = it.section.getBoundingClientRect().top + window.scrollY - cfg.scrollOffset;
+      window.scrollTo({ top: Math.max(0, y), behavior: reduce ? 'auto' : 'smooth' });
+      if (history.replaceState) history.replaceState(null, '', it.link.hash);
+    };
+    items.forEach((it) => it.link.addEventListener('click', onClick));
+
+    if (ScrollTrigger) {
+      ScrollTrigger.create({
+        trigger: document.documentElement,
+        start: 0,
+        end: 'max',
+        onUpdate: () => update(false),
+        onRefresh: () => update(true),
+      });
+    } else {
+      window.addEventListener('scroll', () => update(false), { passive: true });
+      window.addEventListener('resize', () => update(true));
+    }
+    update(true);
+
+    // Arriving with a section in the address (e.g. /artful#research).
+    if (location.hash) {
+      const it = items.find((x) => x.link.hash === location.hash);
+      if (it) {
+        requestAnimationFrame(() => {
+          const y = it.section.getBoundingClientRect().top + window.scrollY - cfg.scrollOffset;
+          window.scrollTo({ top: Math.max(0, y), behavior: 'auto' });
+        });
+      }
+    }
+  },
+};

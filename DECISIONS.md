@@ -53,3 +53,15 @@ Technical decisions, with the reason and who approved them. Creative decisions b
 - Static image = Figma export of each tile frame (1364:1246, 1364:1261) at 2x. Video overlays the Figma content frame (Twitch 243.52,41 177x367.46; WoofWatch 244.05,32.05 177x385; radius 18.83px), object-fit cover like Figma's FILL.
 - Video hidden until playing (implementation choice so the still always matches Figma exactly).
 - Zoom applies to the whole .thumb-stage on video tiles.
+
+## 2026-11-22 — Work pages: Artful first
+- Reina: clicking the Artful thumbnail/title opens the Artful page (Figma 1398:2).
+- Fade-in: "Title, then the rest" (title block, then nav + content 0.4s later).
+- Page nav switch: "Quick fade (~0.3s)"; weight swaps to semibold.
+- VIEW NEXT: left unlinked until a MediPal page exists.
+- Implementation choices (flag to Reina, easy to change in motion.js / Webflow):
+  - Sticky nav sits 64px from the top (level with the navbar's top margin).
+  - A section becomes current when its top passes 25% of the screen height (40% made the short Context section get skipped on click).
+  - Clicking scrolls smoothly; the section lands 64px from the top.
+  - Navbar links other than REINA PEREZ (home) are still placeholders, as on the homepage.
+- Site is on the Basic plan (no CMS), so each work page is a static page.

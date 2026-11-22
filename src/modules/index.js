@@ -8,6 +8,7 @@ import thumbVideo from './thumb-video.js';
 import heroIntro from './hero-intro.js';
 import arrowGrow from './arrow-grow.js';
 import thumbZoom from './thumb-zoom.js';
+import pageNav from './page-nav.js';
 
 export const modules = {
   'project-stack': projectStack,
@@ -17,4 +18,5 @@ export const modules = {
   'hero-intro': heroIntro,
   'arrow-grow': arrowGrow,
   'thumb-zoom': thumbZoom,
+  'page-nav': pageNav,
 };

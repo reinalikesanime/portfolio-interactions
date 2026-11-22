@@ -1,5 +1,14 @@
 # Changelog
 
+## v0.8.0 — 2026-11-22
+
+- New Artful work page (/artful), built from Figma node 1398:2. Image areas are gray placeholders as designed; text is the Figma copy.
+- Artful thumbnail and title on the homepage now open the page (tile wrapped in a link; hover effects unchanged).
+- Load fade-in: title block first, then the page nav + content (same timing as the homepage).
+- PAGE NAV stays fixed while scrolling (sticky, 64px from the top). The current section's title turns semibold and fully opaque with a 0.3s fade; others stay at 60%. Clicking a title scrolls smoothly to its section (instant with reduced motion) and updates the address (#research etc.).
+- VIEW NEXT: MEDIPAL is in place but not linked yet (no MediPal page).
+- Head: Switzer 700 added (bold phrase in Context & Challenge).
+
 ## v0.7.0 — 2026-11-17
 
 - Twitch: Redesign and WoofWatch thumbnails now show Reina's Figma frame (phone on its start screen) and play her screen recording on hover, over the phone screen with rounded corners; looping. Leaving stops it and returns to the start screen. Touch: plays while on screen.
