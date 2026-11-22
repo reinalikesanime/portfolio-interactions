@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.8.2 — 2026-11-22
+
+- Fix: page nav clicks were also handled by Webflow's built-in anchor scrolling, which pulled sections to the top of the screen (and could highlight the wrong title). Webflow's handler is now blocked for page nav links.
+- Any section that fits on screen now lands centered (was: only sections under 70% of the screen height). Sections taller than the screen put their heading at eye level (30% down).
+
 ## v0.8.1 — 2026-11-22
 
 - Page nav clicks now land the section at eye level instead of flush to the top (Reina): sections that fit on screen are centered; taller ones put their heading about 30% down the screen. The highlight line moved to 45% to match, so the clicked title is always the one that lights up.

@@ -6,6 +6,8 @@
 // fades quickly; the weight swaps at the start of the fade. Clicking a title
 // scrolls to that section (smoothly; instantly with reduced motion), landing
 // it centered on screen if it fits, otherwise with its heading at eye level.
+// Webflow's built-in anchor scrolling is blocked for these links (it would
+// pull the section to the top).
 //
 // Webflow markup:
 //   aside.cs-nav > a.cs-nav-link[href="#section-id"]  (one per section)
@@ -32,7 +34,7 @@ export default {
     const targetY = (section) => {
       const vh = window.innerHeight;
       const rect = section.getBoundingClientRect();
-      const fits = rect.height <= vh * (1 - cfg.eyeLevel);
+      const fits = rect.height <= vh;
       let top = fits ? (vh - rect.height) / 2 : vh * cfg.eyeLevel;
       top = Math.min(top, vh * cfg.activeLine - 8); // stay above the highlight line
       return Math.max(0, rect.top + window.scrollY - top);
@@ -73,6 +75,9 @@ export default {
       const it = items.find((x) => x.link === e.currentTarget);
       if (!it) return;
       e.preventDefault();
+      // Webflow has its own anchor-link scrolling (to the top of the target)
+      // that listens higher up; stop it so it doesn't fight this scroll.
+      e.stopPropagation();
       window.scrollTo({ top: targetY(it.section), behavior: reduce ? 'auto' : 'smooth' });
       if (history.replaceState) history.replaceState(null, '', it.link.hash);
     };

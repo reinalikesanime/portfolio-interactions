@@ -66,8 +66,10 @@ export const motion = {
     activeLine: 0.45,
     // Where a clicked section lands (Reina, 2026-11-22: "more centered to the
     // screen or eye level" instead of flush to the top). Sections that fit on
-    // screen are centered; taller ones put their heading at eyeLevel (share of
-    // the screen height from the top). Never lower than just above activeLine.
+    // screen are centered (Reina, 2026-11-22: "double check sections are
+    // centered"); ones taller than the screen put their heading at eyeLevel
+    // (share of the screen height from the top). Never lower than just above
+    // activeLine.
     eyeLevel: 0.3,
   },
   nav: {

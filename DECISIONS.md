@@ -70,3 +70,9 @@ Technical decisions, with the reason and who approved them. Creative decisions b
 ## 2026-11-22 — Page nav click position
 - Reina: clicked sections should land "more centered to the screen or eye level" instead of flush to the top.
 - Implemented: centered if the section fits on screen; otherwise heading at 30% of screen height (motion.pageNav.eyeLevel). Highlight line moved 25% -> 45% (activeLine) so the clicked section is the active one. Conclusion can't scroll past the page end, so it sits lower; it still highlights (bottom-of-page rule).
+
+## 2026-11-22 — Page nav centering fix
+- Reina: Context & Challenge wasn't centered on click. Cause: Webflow's own anchor-link smooth scroll (delegated on document) also ran and scrolled the target to the top. page-nav now calls stopPropagation on its links.
+- Reina: "double check sections are centered" -> every section that fits the screen is centered. Taller-than-screen sections: heading at 30%.
+- Known limit: Conclusion is the last section and the page ends below it, so it can't scroll up to center (lands lower). Centering it would need extra space at the bottom of the page — a design change, not made; flagged to Reina.
+- Testing note: the hidden browser pane draws no frames, so smooth scrolling can't be verified there; tested in local headless Chrome with a stand-in for Webflow's handler.
