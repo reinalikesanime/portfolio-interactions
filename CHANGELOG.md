@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.8.1 — 2026-11-22
+
+- Page nav clicks now land the section at eye level instead of flush to the top (Reina): sections that fit on screen are centered; taller ones put their heading about 30% down the screen. The highlight line moved to 45% to match, so the clicked title is always the one that lights up.
+
 ## v0.8.0 — 2026-11-22
 
 - New Artful work page (/artful), built from Figma node 1398:2. Image areas are gray placeholders as designed; text is the Figma copy.

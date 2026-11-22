@@ -61,11 +61,14 @@ export const motion = {
     duration: 0.3, // "quick fade" (Reina, 2026-11-22)
     ease: 'power2.out',
     // A section becomes current once its top passes this line (share of the
-    // screen height from the top). PLACEHOLDER: not specified in design.
-    activeLine: 0.25,
-    // Clicking a title scrolls so the section starts this far from the top
-    // (px), level with where the sticky nav sits (64px, same as the navbar).
-    scrollOffset: 64,
+    // screen height from the top). Sits just below where clicked sections land.
+    // PLACEHOLDER: not specified in design.
+    activeLine: 0.45,
+    // Where a clicked section lands (Reina, 2026-11-22: "more centered to the
+    // screen or eye level" instead of flush to the top). Sections that fit on
+    // screen are centered; taller ones put their heading at eyeLevel (share of
+    // the screen height from the top). Never lower than just above activeLine.
+    eyeLevel: 0.3,
   },
   nav: {
     // Nav text color for each background theme set with data-nav-theme.

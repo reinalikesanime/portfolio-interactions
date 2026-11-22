@@ -4,7 +4,8 @@
 // .cs-nav, top 64px). As the reader scrolls, the title of the section they're
 // in turns semibold and fully opaque; the rest stay regular at 60%. Opacity
 // fades quickly; the weight swaps at the start of the fade. Clicking a title
-// scrolls to that section (smoothly; instantly with reduced motion).
+// scrolls to that section (smoothly; instantly with reduced motion), landing
+// it centered on screen if it fits, otherwise with its heading at eye level.
 //
 // Webflow markup:
 //   aside.cs-nav > a.cs-nav-link[href="#section-id"]  (one per section)
@@ -26,6 +27,16 @@ export default {
       .map((link) => ({ link, section: document.getElementById(decodeURIComponent(link.hash.slice(1))) }))
       .filter((it) => it.section);
     if (!items.length) return;
+
+    // Scroll position that brings a section to its landing spot.
+    const targetY = (section) => {
+      const vh = window.innerHeight;
+      const rect = section.getBoundingClientRect();
+      const fits = rect.height <= vh * (1 - cfg.eyeLevel);
+      let top = fits ? (vh - rect.height) / 2 : vh * cfg.eyeLevel;
+      top = Math.min(top, vh * cfg.activeLine - 8); // stay above the highlight line
+      return Math.max(0, rect.top + window.scrollY - top);
+    };
 
     let current = -1;
     const setActive = (index, instant) => {
@@ -62,8 +73,7 @@ export default {
       const it = items.find((x) => x.link === e.currentTarget);
       if (!it) return;
       e.preventDefault();
-      const y = it.section.getBoundingClientRect().top + window.scrollY - cfg.scrollOffset;
-      window.scrollTo({ top: Math.max(0, y), behavior: reduce ? 'auto' : 'smooth' });
+      window.scrollTo({ top: targetY(it.section), behavior: reduce ? 'auto' : 'smooth' });
       if (history.replaceState) history.replaceState(null, '', it.link.hash);
     };
     items.forEach((it) => it.link.addEventListener('click', onClick));
@@ -87,8 +97,7 @@ export default {
       const it = items.find((x) => x.link.hash === location.hash);
       if (it) {
         requestAnimationFrame(() => {
-          const y = it.section.getBoundingClientRect().top + window.scrollY - cfg.scrollOffset;
-          window.scrollTo({ top: Math.max(0, y), behavior: 'auto' });
+          window.scrollTo({ top: targetY(it.section), behavior: 'auto' });
         });
       }
     }
